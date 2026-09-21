@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git-Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/SanjayTomar22/EasyCRUD.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Build success'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Test success'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploy success'
+            }
+        }
+    }
+}
