@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Git-Checkout') {
+        stage('Git-Pull') {
             steps {
                 git branch: 'main', url: 'https://github.com/SanjayTomar22/EasyCRUD.git'
             }
