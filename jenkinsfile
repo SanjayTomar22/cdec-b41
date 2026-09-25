@@ -15,7 +15,13 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Test success'
+            sh '''
+                mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+              -Dsonar.projectKey=studentapp \
+              -Dsonar.projectName='studentapp' \
+              -Dsonar.host.url=http://54.226.51.3:9000 \
+              -Dsonar.token=sqp_545ac4657edc42a90e22d34c392c3efb3b4c7ca9
+            '''
             }
         }
         stage('Deploy') {
