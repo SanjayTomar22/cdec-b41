@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('git-pull') {
+            steps {
+                git branch: 'main', url: 'https://github.com/SanjayTomar22/cdec-terraform.git'
+            }
+        }
+        stage('init') {
+            steps {
+                terraform init
+            }
+        }
+        stage('plan') {
+            steps {
+                terraform plan
+            }
+        }
+        stage('apply') {
+            steps {
+                terraform apply --auto-approve
+            }
+        }
+    }
+}
