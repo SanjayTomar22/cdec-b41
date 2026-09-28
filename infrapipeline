@@ -19,7 +19,9 @@ pipeline {
         }
         stage('Verify') {
             steps {
-                input message: 'Shall we proceed ?', ok: 'Approve'
+                timeout(10) {
+                    input message: 'Shall we proceed ?', ok: 'Approve'
+                }      
             }
         }
         stage('apply') {
